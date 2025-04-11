@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages de Sponsoring - Forum IT & Digital Careers</title>
+    <link rel="icon" href="img/logoclub.jpg" type="image/jpg">
+    <link rel="apple-touch-icon" href="img/logoclub.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --diamond: linear-gradient(135deg, #00b4db, #0083b0);
+            --platinum: linear-gradient(135deg, #64748b, #94a3b8);
+            --gold: linear-gradient(135deg, #f59e0b, #fbbf24);
+            --silver: linear-gradient(135deg, #94a3b8, #cbd5e1);
+            --bronze: linear-gradient(135deg, #b45309, #d97706);
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgb(0, 0, 0);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .package-header {
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .diamond {
+            background: var(--diamond);
+        }
+
+        .platinum {
+            background: var(--platinum);
+        }
+
+        .gold {
+            background: var(--gold);
+        }
+
+        .silver {
+            background: var(--silver);
+        }
+
+        .bronze {
+            background: var(--bronze);
+        }
+
+        .package-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .package-body {
+            padding: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .available {
+            color: #10b981;
+        }
+
+        .unavailable {
+            color: #ef4444;
+            opacity: 0.6;
+        }
+
+        .package-cta {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .package-cta:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        .comparison-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .highlight {
+            font-weight: bold;
+            background: #e0e7ff !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-section {
+                padding: 1rem;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Nos Packages de Sponsoring</h1>
+        <p class="subtitle">Choisissez le niveau d'engagement qui correspond à vos objectifs</p>
+    </header>
+
+    <div class="container">
+        <div class="packages-grid">
+            <!-- Package DIAMANT -->
+            <div class="package-card">
+                <div class="package-header diamond">
+                    <div class="package-badge">Exclusif</div>
+                    <h2 class="package-title">Diamant</h2>
+                    <div class="package-price">80,000 MAD</div>
+                    <p>Sponsor exclusif</p>
+                </div>
+                <div class="package-body">
+                    <ul class="features-list">
+                        <li><i class="fas fa-check feature-icon available"></i> Naming Rights de l'événement</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Stand sur mesure 20m²</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 3 conférences plénières</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Campagne digitale dédiée</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Accès backstage VIP</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Branding sur tous les goodies</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Base de données participants</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Package PLATINE -->
+            <div class="package-card">
+                <div class="package-header platinum">
+                    <h2 class="package-title">Platine</h2>
+                    <div class="package-price">50,000 MAD</div>
+                    <p>Sponsor principal</p>
+                </div>
+                <div class="package-body">
+                    <ul class="features-list">
+                        <li><i class="fas fa-check feature-icon available"></i> Logo tête d'affiche</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Stand premium 12m²</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 2 conférences</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Interview média</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 10 invitations VIP</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Mention complète</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Naming Rights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Package OR -->
+            <div class="package-card">
+                <div class="package-header gold">
+                    <h2 class="package-title">Or</h2>
+                    <div class="package-price">30,000 MAD</div>
+                    <p>Sponsor officiel</p>
+                </div>
+                <div class="package-body">
+                    <ul class="features-list">
+                        <li><i class="fas fa-check feature-icon available"></i> Logo sur supports</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Stand 9m²</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 1 conférence</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 6 invitations VIP</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Mention digitale</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Interview média</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Naming Rights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Package ARGENT -->
+            <div class="package-card">
+                <div class="package-header silver">
+                    <h2 class="package-title">Argent</h2>
+                    <div class="package-price">15,000 MAD</div>
+                    <p>Partenaire</p>
+                </div>
+                <div class="package-body">
+                    <ul class="features-list">
+                        <li><i class="fas fa-check feature-icon available"></i> Logo imprimés</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Stand 6m²</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Conférence</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 3 invitations</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Mention digitale</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Interview média</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Naming Rights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Package BRONZE -->
+            <div class="package-card">
+                <div class="package-header bronze">
+                    <h2 class="package-title">Bronze</h2>
+                    <div class="package-price">8,000 MAD</div>
+                    <p>Soutien</p>
+                </div>
+                <div class="package-body">
+                    <ul class="features-list">
+                        <li><i class="fas fa-check feature-icon available"></i> Logo site web</li>
+                        <li><i class="fas fa-check feature-icon available"></i> Table partagée</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Conférence</li>
+                        <li><i class="fas fa-check feature-icon available"></i> 1 invitation</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Mention</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Interview média</li>
+                        <li><i class="fas fa-times feature-icon unavailable"></i> Naming Rights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Comparaison des Avantages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Avantages</th>
+                        <th>Diamant</th>
+                        <th>Platine</th>
+                        <th>Or</th>
+                        <th>Argent</th>
+                        <th>Bronze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Naming Rights</td>
+                        <td class="highlight">✔️ Exclusif</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Espace stand</td>
+                        <td class="highlight">20m² sur mesure</td>
+                        <td>12m² premium</td>
+                        <td>9m²</td>
+                        <td>6m²</td>
+                        <td>Table partagée</td>
+                    </tr>
+                    <tr>
+                        <td>Conférences</td>
+                        <td class="highlight">3 plénières</td>
+                        <td>2 sessions</td>
+                        <td>1 session</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Invitations VIP</td>
+                        <td class="highlight">15</td>
+                        <td>10</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Visibilité digitale</td>
+                        <td class="highlight">Campagne dédiée</td>
+                        <td>Mention complète</td>
+                        <td>Mention digitale</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Accès backstage</td>
+                        <td class="highlight">✔️</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Base données</td>
+                        <td class="highlight">✔️</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Forum IT & Digital Careers - ISFO Casablanca</p>
+        <p>Contact : <a
+                href="mailto:sponsoring@forumit.ma?subject=Demande%20d'information&body=Bonjour%2C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%2C%20je%20suis%20perdue"
+                style="color: #7c3aed;">sponsoring@forumit.ma</a> ou <a
+                href="https://wa.me/2120775559522?text=Bonjour%2C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%2C%20je%20suis%20perdue"
+                style="color: #7c3aed;">‪+212 077 555 95 22‬</a></p>
+    </footer>
+
+    <script>
+        // Animation au chargement
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.package-card');
+
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+
+            // Surlignement au survol du tableau
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', function () {
+                    this.classList.add('highlight');
+                });
+                row.addEventListener('mouseleave', function () {
+                    this.classList.remove('highlight');
+                });
+            });
+        });
+
+        // Gestion du clic sur les boutons
+        document.querySelectorAll('.package-cta').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const packageName = this.closest('.package-card').querySelector('.package-title').textContent;
+                alert(`Vous avez sélectionné le package ${packageName}. Notre équipe va vous contacter !`);
+            });
+        });
+    </script>
+</body>
+
+</html>

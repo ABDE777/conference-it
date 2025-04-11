@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forum des Carrières IT & Digital - ISFO Casablanca - 29 mai 2025">
+    <link rel="icon" href="img/logoclub.jpg" type="image/jpg">
+    <link rel="apple-touch-icon" href="img/logoclub.jpg">
+    <title>Forum IT & Digital Careers - ISFO Casablanca</title>
+  <style>
+        :root {
+            --primary: #60a5fa;       /* Lighter blue */
+            --secondary: #a78bfa;     /* Lighter violet */
+            --accent: #fbbf24;        /* Brighter orange */
+            --light: #1e293b;         /* Dark background (flipped) */
+            --dark: #f8fafc;          /* White text (flipped) */
+            --success: #10b981;       /* Green */
+            --warning: #f59e0b;       /* Orange */
+            --danger: #ef4444;        /* Red */
+            --bg-dark: #0f172a;       /* Darker background */
+            --bg-card: #1e293b;       /* Card background */
+            --text-muted: #94a3b8;    /* Muted text */
+            --border-color: #334155;  /* Border color */
+            --font-main: 'Inter', sans-serif;
+            --gradient: linear-gradient(550deg, rgb(0, 0, 0), rgb(91, 3, 255));
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--bg-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Accessibilité */
+        #accessibility-bar {
+            background: var(--bg-card);
+            color: var(--dark);
+            padding: 8px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* En-tête */
+        header {
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            height: 70px;
+            width: 250px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, white, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .event-date {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: rgba(255, 255, 255, 0.15);
+            outline: none;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 60%;
+        }
+
+        /* Section Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--accent);
+            color: black;
+            padding: 15px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background: #3b82f6;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--bg-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #8b5cf6;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover,
+        .btn-outline:focus {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid et Cartes */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features i.fa-check {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        /* Intervenants */
+        .speaker-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .speaker-img-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--bg-card);
+            box-shadow: var(--shadow);
+        }
+
+        .speaker-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover .speaker-img {
+            transform: scale(1.1);
+        }
+
+        .speaker-title {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .speaker-bio {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--border-color);
+            border-radius: 50%;
+            color: var(--dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Partenaires */
+        .partners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .partner-tier {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .partner-tier h3 {
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .partner-tier h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .company-logo {
+            max-height: 80px;
+            max-width: 200px;
+            width: auto;
+            filter: grayscale(80%) brightness(1.5);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo:hover {
+            filter: grayscale(0%) brightness(1.5);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Google Form Section */
+        .form-section {
+            text-align: center;
+            padding: 60px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .form-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .form-section p {
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .form-btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        .form-btn-primary:hover {
+            background: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-btn-secondary {
+            background: var(--secondary);
+            color: var(--bg-dark);
+        }
+
+        .form-btn-secondary:hover {
+            background: #8b5cf6;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Programme */
+        .schedule {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .schedule-item {
+            display: flex;
+            margin-bottom: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .schedule-item.highlight {
+            border-left: 6px solid var(--accent);
+        }
+
+        .schedule-time {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 20px;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .schedule-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .schedule-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Localisation */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .location-info {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .location-info h3 {
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        address {
+            font-style: normal;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        address i {
+            width: 24px;
+            color: var(--secondary);
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        address a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        address a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .transport-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .transport-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .transport-list i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+
+        .accessibility-info {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .accessibility-info i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .map {
+            height: 100%;
+            min-height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Pied de page */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-logo {
+            height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-col address {
+            margin-bottom: 25px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            padding: 25px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .schedule-item {
+                flex-direction: column;
+            }
+
+            .schedule-time {
+                min-width: 100%;
+                padding: 15px;
+            }
+
+            .form-section {
+                padding: 40px;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .event-date {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 8px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                height: 80vh;
+                min-height: 400px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- En-tête -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="Logo ISFO" class="logo" style="width:250px; height: 90px;">
+                </div>
+                <nav aria-label="Navigation principale">
+                    <ul>
+                        <li><a href="#about" class="nav-link">À propos</a></li>
+                        <li><a href="#speakers" class="nav-link">Intervenants</a></li>
+                        <li><a href="#companies" class="nav-link">Partenaires</a></li>
+                        <li><a href="#sponsor" class="nav-link">Sponsoring</a></li>
+                        <li><a href="#location" class="nav-link">Localisation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero" role="region" aria-label="Présentation de l'événement">
+        <div class="hero-content">
+            <h2>L'événement tech incontournable de 2025</h2>
+            <p>Connectez-vous avec les leaders du secteur et découvrez les opportunités de carrière dans l'IT et le
+                digital au Maroc</p>
+            <div class="cta-buttons">
+                <a href="#sponsor" class="btn btn-primary" aria-label="Devenir sponsor">
+                    <i class="fas fa-crown"></i> Devenir Sponsor
+                </a>
+                <a href="#spectateur" class="btn btn-outline" aria-label="S'inscrire comme participant">
+                    <i class="fas fa-user-plus"></i> S'inscrire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="section" role="region" aria-labelledby="about-heading">
+        <div class="container">
+            <h2 id="about-heading" class="section-title">Découvrez le Forum</h2>
+            <p class="section-subtitle">Une journée immersive pour explorer les carrières du numérique et rencontrer les
+                acteurs clés du secteur</p>
+
+            <div class="grid">
+                <article class="card" aria-labelledby="card1-heading">
+                    <div class="card-header">
+                        <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                        <h3 id="card1-heading">Conférences</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Découvrez les dernières tendances en IA, Cloud Computing, DevOps et bien plus encore avec nos
+                            experts nationaux et internationaux.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Keynotes inspirantes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tables rondes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Q&R avec les experts</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card" aria-labelledby="card2-heading">
+                    <div class="card-header">
+                        <i class="fas fa-network-wired" aria-hidden="true"></i>
+                        <h3 id="card2-heading">Networking</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Rencontrez les recruteurs des plus grandes entreprises IT et échangez avec des professionnels
+                            expérimentés du secteur.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Sessions de speed-recruiting</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Espaces dédiés</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Outils de matching</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card" aria-labelledby="card3-heading">
+                    <div class="card-header">
+                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        <h3 id="card3-heading">Ateliers Pratiques</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Participez à nos ateliers pratiques animés par des professionnels sur des sujets concrets du
+                            marché IT.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Coaching CV et LinkedIn</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Simulations d'entretiens</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Cas pratiques techniques</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Intervenants -->
+    <section id="speakers" class="section bg-light" role="region" aria-labelledby="speakers-heading">
+        <div class="container">
+            <h2 id="speakers-heading" class="section-title">Nos Experts Intervenants</h2>
+            <p class="section-subtitle">Découvrez les professionnels renommés qui partageront leur expertise lors de
+                l'événement</p>
+
+            <div class="grid">
+                <!-- Intervenant 1 -->
+                <article class="card speaker-card" aria-labelledby="speaker1-heading">
+                    <div class="card-body">
+                        <div class="speaker-img-container">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                alt="Portrait de Mohammed El Amrani" class="speaker-img" width="150" height="150">
+                        </div>
+                        <h3 id="speaker1-heading">Mohammed El Amrani</h3>
+                        <p class="speaker-title">Directeur Technique, Cloud Solutions</p>
+                        <p class="speaker-bio">Expert en transformation digitale avec 15 ans d'expérience dans les
+                            architectures cloud et la migration des systèmes legacy.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Profil LinkedIn de Mohammed El Amrani"><i
+                                    class="fab fa-linkedin"></i></a>
+                            
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Intervenant 2 -->
+                <article class="card speaker-card" aria-labelledby="speaker2-heading">
+                    <div class="card-body">
+                        <div class="speaker-img-container">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                alt="Portrait de Nadia Benjelloun" class="speaker-img" width="150" height="150">
+                        </div>
+                        <h3 id="speaker2-heading">Nadia Benjelloun</h3>
+                        <p class="speaker-title">DRH, TechMaroc</p>
+                        <p class="speaker-bio">Spécialiste en recrutement IT avec une expertise particulière dans la
+                            gestion des talents tech et la diversité dans la tech.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Profil LinkedIn de Nadia Benjelloun"><i
+                                    class="fab fa-linkedin"></i></a>
+                           
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Intervenant 3 -->
+                <article class="card speaker-card" aria-labelledby="speaker3-heading">
+                    <div class="card-body">
+                        <div class="speaker-img-container">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Portrait de Karim Belhaj"
+                                class="speaker-img" width="150" height="150">
+                        </div>
+                        <h3 id="speaker3-heading">Karim Belhaj</h3>
+                        <p class="speaker-title">CEO, DevHouse</p>
+                        <p class="speaker-bio">Entrepreneur serial tech avec plusieurs exits à son actif et expert
+                            reconnu en développement agile et méthodes DevOps.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Profil LinkedIn de Karim Belhaj"><i class="fab fa-linkedin"></i></a>
+                          
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#programme" class="btn btn-secondary" aria-label="Voir le programme complet">
+                    <i class="fas fa-calendar-alt"></i> Voir le Programme Complet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Partenaires -->
+    <section id="companies" class="section" role="region" aria-labelledby="companies-heading">
+        <div class="container">
+            <h2 id="companies-heading" class="section-title">Nos Partenaires Stratégiques</h2>
+            <p class="section-subtitle">Découvrez les entreprises et institutions qui soutiennent cet événement</p>
+
+            <div class="partners-grid">
+                <div class="partner-tier">
+                    <h3>Sponsors Officiels</h3>
+                    <div class="partner-logos">
+                        <img src="https://via.placeholder.com/200x80?text=TechMaroc" alt="Logo TechMaroc"
+                            class="company-logo" width="200" height="80">
+                        <img src="https://via.placeholder.com/200x80?text=CloudSolutions" alt="Logo CloudSolutions"
+                            class="company-logo" width="200" height="80">
+                    </div>
+                </div>
+
+                <div class="partner-tier">
+                    <h3>Sponsors Gold</h3>
+                    <div class="partner-logos">
+                        <img src="https://via.placeholder.com/180x70?text=DevHouse" alt="Logo DevHouse"
+                            class="company-logo" width="180" height="70">
+                        <img src="https://via.placeholder.com/180x70?text=DataTech" alt="Logo DataTech"
+                            class="company-logo" width="180" height="70">
+                        <img src="https://via.placeholder.com/180x70?text=AI_Maroc" alt="Logo AI Maroc"
+                            class="company-logo" width="180" height="70">
+                    </div>
+                </div>
+
+                <div class="partner-tier">
+                    <h3>Partenaires Institutionnels</h3>
+                    <div class="partner-logos">
+                        <img src="https://via.placeholder.com/150x60?text=MITC" alt="Logo Ministère de l'IT"
+                            class="company-logo" width="150" height="60">
+                        <img src="https://via.placeholder.com/150x60?text=APBI" alt="Logo APBI" class="company-logo"
+                            width="150" height="60">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#sponsor" class="btn btn-outline" aria-label="Devenir partenaire">
+                    <i class="fas fa-handshake"></i> Devenir Partenaire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Sponsoring -->
+    <section id="sponsor" class="section bg-light" role="region" aria-labelledby="sponsor-heading">
+        <div class="container">
+            <h2 id="sponsor-heading" class="section-title">Opportunités de Sponsoring</h2>
+            <p class="section-subtitle">Bénéficiez d'une visibilité exceptionnelle auprès des talents IT de demain</p>
+
+            <div class="form-section">
+                <h3>Devenez Sponsor de notre événement</h3>
+                <p>Positionnez votre entreprise comme acteur clé du secteur numérique et accédez à un vivier de talents
+                    qualifiés. Nos packages sponsor offrent des avantages adaptés à vos objectifs de communication et de
+                    recrutement.</p>
+
+                <div class="form-buttons">
+                    <a href="PACK.HTML" class="form-btn form-btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-crown"></i> Voir les Packages
+                    </a>
+                    <a href="" class="form-btn form-btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-signature"></i> Devenir Sponsor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Inscription Participants -->
+    <section id="spectateur" class="section" role="region" aria-labelledby="spectator-heading">
+        <div class="container">
+            <h2 id="spectator-heading" class="section-title">Inscription Participants</h2>
+            <p class="section-subtitle">Réservez dès maintenant votre place pour cet événement incontournable</p>
+
+            <div class="form-section">
+                <h3>Rejoignez-nous le 29 mai 2025</h3>
+                <p>L'inscription au Forum IT & Digital Careers est gratuite mais obligatoire. En vous inscrivant, vous
+                    aurez accès à toutes les conférences, ateliers et sessions de networking avec les entreprises
+                    partenaires.</p>
+
+                <div class="form-buttons">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfr938bopfCAFVaB3F38Nu9hvmo4L_JrKtq_56cY0NoPFTziA/viewform?usp=header"
+                        class="form-btn form-btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-user-plus"></i> S'inscrire Maintenant
+                    </a>
+                </div>
+
+                <p style="margin-top: 30px; font-size: 0.95rem; color: #64748b;">
+                    <i class="fas fa-info-circle"></i> Vous recevrez une confirmation par email avec votre badge
+                    d'accès.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Programme -->
+    <section id="programme" class="section bg-light" role="region" aria-labelledby="program-heading">
+        <div class="container">
+            <h2 id="program-heading" class="section-title">Programme de la Journée</h2>
+            <p class="section-subtitle">Découvrez le déroulé de cette journée riche en rencontres et apprentissages</p>
+
+            <div class="schedule">
+                <div class="schedule-item">
+                    <div class="schedule-time">08:30 - 09:30</div>
+                    <div class="schedule-content">
+                        <h3>Accueil des participants</h3>
+                        <p>Enregistrement et petit-déjeuner de networking</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item highlight">
+                    <div class="schedule-time">09:30 - 10:15</div>
+                    <div class="schedule-content">
+                        <h3>Cérémonie d'ouverture</h3>
+                        <p>Discours d'ouverture par les organisateurs et les partenaires institutionnels</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <div class="schedule-time">10:30 - 12:00</div>
+                    <div class="schedule-content">
+                        <h3>Session plénière : Les tendances IT 2025</h3>
+                        <p>Table ronde avec les experts du secteur</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00 - 13:30</div>
+                    <div class="schedule-content">
+                        <h3>Pause déjeuner & networking</h3>
+                        <p>Rencontres avec les entreprises participantes</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item highlight">
+                    <div class="schedule-time">13:30 - 15:00</div>
+                    <div class="schedule-content">
+                        <h3>Ateliers parallèles</h3>
+                        <p>Session 1: Préparer son CV tech<br>
+                            Session 2: Entretiens techniques<br>
+                            Session 3: Carrières dans le cloud</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <div class="schedule-time">15:30 - 17:00</div>
+                    <div class="schedule-content">
+                        <h3>Speed-recruiting</h3>
+                        <p>Rencontres rapides avec les recruteurs des entreprises partenaires</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item highlight">
+                    <div class="schedule-time">17:00 - 17:30</div>
+                    <div class="schedule-content">
+                        <h3>Clôture & cocktail</h3>
+                        <p>Mot de fin et échanges informels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Localisation -->
+    <section id="location" class="section" role="region" aria-labelledby="location-heading">
+        <div class="container">
+            <h2 id="location-heading" class="section-title">Localisation & Accès</h2>
+            <p class="section-subtitle">Toutes les informations pratiques pour vous rendre à l'événement</p>
+
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>Institut Spécialisé de Formation de l'Offshoring</h3>
+                    <address>
+                        <i class="fas fa-map-marker-alt"></i> Angle G9F7+2VF، الطريق الوطنية رقم 11, Casablanca<br>
+
+                        <i class="fas fa-envelope"></i> <a
+                            href="mailto:contact@isfocasa.com?subject=Demande%20de%20guide%20de%20localisation&body=Bonjour%252C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%252C%20je%20suis%20perdue"
+                            target="_blank">
+                            contact@isfocasa.com</a><br>
+                        <i class="fab fa-whatsapp"></i> <a
+                            href="https://wa.me/2120775559522?text=Bonjour%2C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%2C%20je%20suis%20perdue"
+                            target="_blank">
+                            ‪+2120775559522‬</a>
+                    </address>
+
+                    <h4>Comment venir ?</h4>
+                    <ul class="transport-list">
+                        <li><i class="fas fa-bus"></i> Lignes de bus 10, 15, 27 - Arrêt "ISFO"</li>
+                        <li><i class="fas fa-tram"></i> BUSWAY 1 - Station "Casa Nearshore --> 15min à pied"</li>
+                        <li><i class="fas fa-tram"></i> Tramway T2 - Station "Zenith --> petit taxi 10 MAD(ofppt route
+                            iscae)"</li>
+                        <li><i class="fas fa-car"></i> Parking sécurisé disponible</li>
+                    </ul>
+
+                    <div class="accessibility-info">
+                        <h4>Accessibilité</h4>
+                        <p><i class="fas fa-wheelchair"></i> L'établissement est entièrement accessible aux personnes à
+                            mobilité réduite</p>
+                    </div>
+                </div>
+
+                <div class="map" aria-label="Carte de localisation de l'ISFO Casablanca">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d708.1138032849607!2d-7.6357458!3d33.522551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62d0c8572b4af%3A0x2883c3014ab1facb!2sOFPPT%20NTIC1!5e1!3m2!1sfr!2sma!4v1744391444726!5m2!1sfr!2sma"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Localisation ISFO sur Google Maps"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="img/logox.png" alt="Logo ISFO" class="footer-logo" width="150" height="70">
+                    <p>L'Institut Spécialisé de Formation de l'Offshoring, leader dans la formation aux métiers du
+                        numérique au Maroc.</p>
+
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="Page LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Compte Instagram"><i class="fab fa-instagram"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><a href="#about" aria-label="À propos du forum">À propos</a></li>
+                        <li><a href="#speakers" aria-label="Intervenants du forum">Intervenants</a></li>
+                        <li><a href="#programme" aria-label="Programme du forum">Programme</a></li>
+                        <li><a href="#location" aria-label="Localisation du forum">Localisation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                <address>
+                 
+                    <i class="fas fa-envelope"></i> <a
+                        href="mailto:contact@isfocasa.com?subject=Demande%20d'information&body=Bonjour%2C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%2C%20je%20suis%20perdue">contact@isfocasa.com</a><br>
+                    <i class="fab fa-whatsapp"></i> <a
+                        href="https://wa.me/212522123456?text=Bonjour%2C%20je%20veux%20passer%20un%20appel%20pour%20un%20guide%20de%20localisation%2C%20je%20suis%20perdue">‪+212
+                        522 123 456‬</a>
+                </address>
+
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 CLUB IT de L'Institut Spécialisé de Formation de l'Offshoring Casablanca. Tous droits
+                    réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation au chargement
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.section-title, .card, .speaker-card');
+
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+
+</html>
